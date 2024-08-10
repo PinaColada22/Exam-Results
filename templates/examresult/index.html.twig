@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exam Results{% endblock %}
+
+{% block body %}
+    <h1>Exam Results</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Score</th>
+                <th>Remarks</th>
+                <th>Pupil</th>
+                <th>Subject</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for examResult in examResults %}
+                <tr>
+                    <td>{{ examResult.id }}</td>
+                    <td>{{ examResult.score }}</td>
+                    <td>{{ examResult.remarks }}</td>
+                    <td>{{ examResult.pupil.name }}</td>
+                    <td>{{ examResult.subject.name }}</td>
+                    <td>
+                        <a href="{{ path('examresult_edit', {id: examResult.id}) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ path('examresult_delete', {id: examResult.id}) }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('examresult_create') }}" class="btn btn-primary">Create New Exam Result</a>
+{% endblock %}
+

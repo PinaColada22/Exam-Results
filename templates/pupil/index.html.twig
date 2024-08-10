@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pupil List{% endblock %}
+
+{% block body %}
+    <h1>Pupil List</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Birth Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pupil in pupils %}
+                <tr>
+                    <td>{{ pupil.id }}</td>
+                    <td>{{ pupil.name }}</td>
+                    <td>{{ pupil.birthDate|date('Y-m-d') }}</td>
+                    <td>
+                        <a href="{{ path('pupil_edit', {id: pupil.id}) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ path('pupil_delete', {id: pupil.id}) }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('pupil_create') }}" class="btn btn-primary">Create New Pupil</a>
+{% endblock %}

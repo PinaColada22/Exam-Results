@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Exam Result{% endblock %}
+
+{% block body %}
+    <h1>Edit Exam Result</h1>
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.score, null, {'label_attr': {'class': 'control-label'}}) }}
+            {{ form_widget(form.score, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.remarks, null, {'label_attr': {'class': 'control-label'}}) }}
+            {{ form_widget(form.remarks, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    {{ form_end(form) }}
+    <a href="{{ path('examresult_index') }}" class="btn btn-secondary mt-3">Back to list</a>
+{% endblock %}

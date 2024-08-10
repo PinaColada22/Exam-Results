@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Pupil{% endblock %}
+
+{% block body %}
+    <h1>Create Pupil</h1>
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.name, null, {'label_attr': {'class': 'control-label'}}) }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.birthDate, null, {'label_attr': {'class': 'control-label'}}) }}
+            {{ form_widget(form.birthDate, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    {{ form_end(form) }}
+    <a href="{{ path('pupil_index') }}" class="btn btn-secondary mt-3">Back to list</a>
+{% endblock %}
